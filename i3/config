@@ -50,7 +50,7 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -104,10 +104,10 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 #run thunar(filemanager)
-bindsym $mod+e exec nautilus
+bindsym $mod+e exec nemo
 
 #run firefox
-bindsym $mod+b exec firefox
+bindsym $mod+b exec brave-browser 
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -115,7 +115,7 @@ bindsym $mod+b exec firefox
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $workspace1 "1: "
-set $workspace2 "2: "
+set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
 set $workspace5 "5: "
@@ -150,10 +150,12 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace0
 
 #open app workspace
-assign [class="Xfce4-terminal"] $workspace1
+#assign [class="Xfce4-terminal"] $workspace1
 assign [class="Firefox"] $workspace2
-assign [class="Org.gnome.Nautilus"] $workspace3
+assign [class="Brave-browser"] $workspace2
+assign [class="Nemo"] $workspace3
 assign [class="Lutris"] $workspace9
+assign [class="Steam"] $workspace9
 assign [class="obs"] $workspace0
 
 # reload the configuration file
@@ -272,8 +274,8 @@ colors {
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 20; # increase screen brightness
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 20; # decrease screen brightness
 
-bindsym XF86MonBrightnessUp exec light -A 1 #increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 1 #decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 
 #ScreenLock
 bindsym $mod+shift+x exec i3lock
@@ -282,7 +284,8 @@ bindsym $mod+shift+x exec i3lock
 #bindsym XF86MonBrightnessDown exec light -U 1 #decrease screen brightness
 
 #set custom wallpaper
-exec_always feh --bg-scale ~/Downloads/les-zelen-trava.jpg
+#exec_always feh --bg-scale ~/Downloads/les-zelen-trava.jpg
+exec_always nitrogen --restore
 
 # set floating (nontiling)for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
@@ -294,7 +297,7 @@ for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-
+for_window [class="mpv"] floating enable
 
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 bindsym $mod+d exec rofi -modi drun -show drun \
@@ -370,3 +373,4 @@ bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots/' && notify-send "Scre
 #start picom
 exec --no-startup-id picom -f
 
+for_window [class=".*"] border pixel 0
