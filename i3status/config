@@ -6,32 +6,23 @@
 # ß
 # If the above line is not correctly displayed, fix your editor first!
 
-general {
-   colors = true
-    interval = 5
-	colors = true  
-	color_good =     '#ceceec'
-	color_degraded = '#2f343a'  
-	color_bad =      '#4c7899'
-    output_format = i3bar
+general {  
+    colors = true  
 }
-order += "disk /"
-order += "cpu_usage"
-order += "memory"
-order += "ethernet _first_"
+
 order += "wireless _first_"
-order += "volume master"
 order += "battery all"
+order += "disk /"
+#order += "load"
+order += "memory"
 order += "tztime local"
+order += "cpu_usage"
+order += "volume master"
+#order += "read_file BRIGHTNESS"
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
         format_down = "W: down"
-}
-
-ethernet _first_ {
-        format_up = "E: %ip (%speed)"
-        format_down = "No Ethernet"
 }
 
 battery all {
@@ -41,6 +32,11 @@ battery all {
 disk "/" {
         format = "%avail"
 }
+
+#load {
+#        format = "%1min"
+#}
+
 memory {
         format = "%used | %available"
         threshold_degraded = "1G"
@@ -48,13 +44,22 @@ memory {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%Y-%m-%d %H:%M"
 }
+
 cpu_usage {
-	format = "CPU %usage {%cpu0 %cpu1}"
-	max_threshold = 75
+format = "CPU %usage {%cpu0 %cpu1}"
+max_threshold = 75
 }
+
 volume master {
-        format = "♪: %volume"
-        format_muted = "♪: muted (%volume)"
+format = "♪: %volume"
+format_muted = "♪: muted (%volume)"
 }
+
+#read_file BRIGHTNESS {
+#format = "BRI %content"
+#path = "/home/mqdd/.config/brightness"
+#max_characters = 5
+#}
+
