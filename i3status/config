@@ -8,20 +8,21 @@
 
 general {  
     colors = true  
+    output_format = "i3bar"
 }
 
 order += "wireless _first_"
 order += "battery all"
 order += "disk /"
 #order += "load"
-order += "memory"
-order += "tztime local"
-order += "cpu_usage"
+#order += "memory"
+#order += "cpu_usage"
 order += "volume master"
+order += "tztime local"
 #order += "read_file BRIGHTNESS"
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
+        format_up = "(%essid%quality)"
         format_down = "W: down"
 }
 
