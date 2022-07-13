@@ -182,8 +182,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 		#status_command i3status
-		status_command i3status | i3status-title-on-bar --color '#FFB6C1'
-        #status_command ~/.config/i3/win.py
+		status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
+        #status_command ~/git/i3spotifystatus/pystatus.py
 		position top
 		output primary
 		tray_output primary
@@ -301,7 +301,7 @@ exec --no-startup-id picom -CGb --config ~/.config/picom.conf
 bindsym Print exec spectacle
 
 #exec --no-startup-id spotify
-assign [class="spotify"] $ws10
+for_window [class="Spotify"] move container to workspace $ws10
 
 bindsym Alt+space exec Krunner
 
