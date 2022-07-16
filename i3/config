@@ -184,7 +184,7 @@ bar {
 		#status_command i3status
 		status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
         #status_command ~/git/i3spotifystatus/pystatus.py
-		position top
+		position bottom
 		output primary
 		tray_output primary
 		font pango:DejaVu Sans Mono 8
@@ -234,6 +234,7 @@ for_window [class="VirtualBox Manager" instance="VirtualBox Manager"] floating e
 #for_window [class="Thunar" instance="Thunar"] floating enable
 for_window [class="zoom" instance="zoom"] floating enable
 #for_window [class="steam" instance="steam"] floating enable
+for_window [class="xcalc" instance="XCalc"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [title="Desktop — Plasma"] kill, floating enable, border none
 for_window [class="plasmashell"] floating enable
@@ -303,6 +304,8 @@ bindsym Print exec spectacle
 #exec --no-startup-id spotify
 for_window [class="Spotify"] move container to workspace $ws10
 
-bindsym Alt+space exec Krunner
+bindsym Alt+space exec krunner
+
+bindsym $mod+Shift+Return exec yakuake
 
 exec --no-startup-id "sleep 0; alacritty -e i3-msg restart"
