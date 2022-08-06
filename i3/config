@@ -313,6 +313,8 @@ exec --no-startup-id flameshot
 #bindsym Print exec spectacle
 bindsym Print exec scrot $(date '%Y%m%d_%H%M%S.png') -e 'mv $f /home/kimp/Pictures/screenshots' && notify-send 'screnshot' 'taken. in ~/Pictures/screenshots'
 bindsym $mod+Shift+Print exec ~/record.sh
+#bindsym Alt+space exec krunner
+bindsym $mod+Shift+Return exec yakuake
 
 
 #Assign app to specific workspace
