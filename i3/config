@@ -300,18 +300,18 @@ smart_borders on
 # Activate smart borders (only when there are effectively no gaps)
 smart_borders no_gaps
 
-#Autostart app 
-exec_always --no-startup-id dunst
+#Autostart app
+exec_always --no-startup-id dunst --restore
 exec_always --no-startup-id pactl set-default-sink 0
 #exec_always  $HOME/.config/polybar/launch.sh
-exec nitrogen --restore
+exec_always nitrogen --restore
 exec --no-startup-id picom -CGb --config ~/.config/picom.conf
 exec --no-startup-id flameshot
 #exec --no-startup-id spotify
 
 #Bind application
 #bindsym Print exec spectacle
-bindsym $mod+b firefox
+bindsym $mod+b exec firefox
 bindsym Print exec scrot $(date '%Y%m%d_%H%M%S.png') -e 'mv $f /home/kimp/Pictures/screenshots' && notify-send 'screnshot' 'taken. in ~/Pictures/screenshots'
 bindsym $mod+Shift+Print exec ~/record.sh
 #bindsym Alt+space exec krunner
