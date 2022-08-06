@@ -307,15 +307,14 @@ exec_always --no-startup-id pactl set-default-sink 0
 exec nitrogen --restore
 exec --no-startup-id picom -CGb --config ~/.config/picom.conf
 exec --no-startup-id flameshot
+#exec --no-startup-id spotify
 
 #Bind application
 #bindsym Print exec spectacle
-#bindsym Print exec scrot $(date '+%y%m%d-%H%M-%S')
-exec_always --no-startup-id dunst
 bindsym Print exec scrot $(date '%Y%m%d_%H%M%S.png') -e 'mv $f /home/kimp/Pictures/screenshots' && notify-send 'screnshot' 'taken. in ~/Pictures/screenshots'
 bindsym $mod+Shift+Print exec ~/record.sh
 
-#exec --no-startup-id spotify
+
 #Assign app to specific workspace
 for_window [class="Spotify"] move container to workspace $ws10
 for_window [class="notion-app-enhanced"] move container to workspace $ws9
@@ -324,5 +323,4 @@ for_window [class="notion-app-enhanced"] move container to workspace $ws9
 
 bindsym $mod+Shift+Return exec yakuake
 
-#Fix i3status title bar
 exec --no-startup-id "sleep 0; i3-sensible-terminal -e i3-msg restart"
