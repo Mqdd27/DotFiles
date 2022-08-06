@@ -251,7 +251,7 @@ for_window [class="yakuake"] floating enable
 for_window [title="gdebi-gtk"] floating enable
 for_window [class="TeamViewer"] floating enable
 
-
+#Set floating window size
 floating_minimum_size -1 x -1
 floating_maximum_size 600 x 725
 
