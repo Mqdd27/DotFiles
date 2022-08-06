@@ -253,13 +253,17 @@ for_window [class="blueman-manager"] floating enable
 for_window [window_role="About"] floating enable
 for_window [class="vlc"] floating enable
 #for_window [class="mpv"] floating enable
-for_window [class="video0*"] floating enable
+#for_window [class="video0"] floating enable
+for_window [title="video0"] floating enable
 for_window [title="ranger"] floating enable
+for_window [title="lf"] floating enable
 for_window [class="yakuake"] floating enable
+for_window [title="gdebi-gtk"] floating enable
+for_window [class="TeamViewer"] floating enable
 
 
-floating_minimum_size 75 x 50
-floating_maximum_size -1 x -1
+#floating_minimum_size -1 x -1
+floating_maximum_size 150 x -75
 
 #run thunar(filemanager)
 bindsym $mod+e exec st -e "ranger"
@@ -309,14 +313,18 @@ exec_always --no-startup-id pactl set-default-sink 0
 #exec_always  $HOME/.config/polybar/launch.sh
 exec nitrogen --restore
 exec --no-startup-id picom -CGb --config ~/.config/picom.conf
+exec --no-startup-id flameshot
 #bindsym Print exec spectacle
-bindsym Print exec flameshot
+#bindsym Print exec scrot $(date '+%y%m%d-%H%M-%S')
+bindsym Print exec scrot $(date '%Y%m%d_%H%M%S.png') -e 'mv $f /home/kimp/Pictures/screenshots' && notify-send 'screnshot' 'taken. in ~/Pictures/screenshots'
+bindsym $mod+Shift+Print exec ~/record.sh
 
 #exec --no-startup-id spotify
 for_window [class="Spotify"] move container to workspace $ws10
+for_window [class="notion-app-enhanced"] move container to workspace $ws9
 
 #bindsym Alt+space exec krunner
 
 bindsym $mod+Shift+Return exec yakuake
 
-#exec --no-startup-id "sleep 0; st -e i3-msg restart"
+exec --no-startup-id "sleep 0; i3-sensible-terminal -e i3-msg restart"
