@@ -6,9 +6,9 @@
  setopt interactive_comments
 
 # History in cache directory:
-# HISTSIZE=10000000
-# SAVEHIST=10000000
-# HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+ HISTSIZE=10000000
+ SAVEHIST=10000000
+ HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # Basic auto/tab complete:
  autoload -U compinit
@@ -72,4 +72,6 @@
                                                                      source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
 #Aliases
-alias up='sudo apt update && sudo apt upgrade -y'
+alias up='sudo nala update && sudo nala upgrade -y'
+alias v='vim'
+alias gc='git clone'
