@@ -252,9 +252,10 @@ for_window [class="nm-connection-editor" instance="Nm-connection-editor"] floati
 for_window [class="blueman-manager"] floating enable
 for_window [window_role="About"] floating enable
 for_window [class="vlc"] floating enable
-#for_window [class="mpv"] floating enable
+for_window [class="mpv"] floating enabler; resize grow width 400px; resize grow height 800px;
 #for_window [class="video0"] floating enable
-for_window [title="video0"] floating enable
+for_window [title="video0"] floating enable; resize grow width 400px; resize grow height 800px;
+#for_window [title="video0"] resize grow height 800px; resize grow width 200px;
 for_window [title="ranger"] floating enable
 for_window [title="lf"] floating enable
 for_window [class="yakuake"] floating enable
@@ -262,8 +263,11 @@ for_window [title="gdebi-gtk"] floating enable
 for_window [class="TeamViewer"] floating enable
 
 
+floating_minimum_size -1 x -1
+floating_maximum_size 600 x 725
+
 #floating_minimum_size -1 x -1
-floating_maximum_size 150 x -75
+#floating_maximum_size 150 x -75
 
 #run thunar(filemanager)
 bindsym $mod+e exec st -e "ranger"
