@@ -321,8 +321,5 @@ bindsym $mod+Shift+Return exec yakuake
 for_window [class="Spotify"] move container to workspace $ws10
 for_window [class="notion-app-enhanced"] move container to workspace $ws9
 
-#bindsym Alt+space exec krunner
-
-bindsym $mod+Shift+Return exec yakuake
-
+#Fix error i3 status title bar
 exec --no-startup-id "sleep 0; i3-sensible-terminal -e i3-msg restart"
