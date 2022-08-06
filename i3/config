@@ -324,6 +324,7 @@ bindsym Print exec scrot $(date '%Y%m%d_%H%M%S.png') -e 'mv $f /home/kimp/Pictur
 bindsym $mod+Shift+Print exec ~/record.sh
 
 #exec --no-startup-id spotify
+#Assign app to specific workspace
 for_window [class="Spotify"] move container to workspace $ws10
 for_window [class="notion-app-enhanced"] move container to workspace $ws9
 
