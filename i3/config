@@ -167,7 +167,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
+# Start i3status to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 		#status_command i3status
@@ -300,7 +300,7 @@ smart_borders on
 # Activate smart borders (only when there are effectively no gaps)
 smart_borders no_gaps
 
-#Start app automatically
+#Autostart app 
 exec_always --no-startup-id dunst
 exec_always --no-startup-id pactl set-default-sink 0
 #exec_always  $HOME/.config/polybar/launch.sh
@@ -311,6 +311,7 @@ exec --no-startup-id flameshot
 
 #Bind application
 #bindsym Print exec spectacle
+bindsym $mod+b firefox
 bindsym Print exec scrot $(date '%Y%m%d_%H%M%S.png') -e 'mv $f /home/kimp/Pictures/screenshots' && notify-send 'screnshot' 'taken. in ~/Pictures/screenshots'
 bindsym $mod+Shift+Print exec ~/record.sh
 #bindsym Alt+space exec krunner
