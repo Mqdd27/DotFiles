@@ -138,8 +138,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -170,24 +170,24 @@ bindsym $mod+r mode "resize"
 # Start i3status to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        #status_command i3status
-        status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
+		#status_command i3status
+		status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
         #status_command ~/git/i3spotifystatus/pystatus.py
-        position top
-        output primary
-        tray_output primary
-        font pango:DejaVu Sans Mono 8
-        separator_symbol "⁞"
-        colors {
-                background #000000
-                statusline #FFFF00
-                separator #ff329f
-                focused_workspace  #f1f1f1 #285577
-                active_workspace   #ffffff #333333
-                inactive_workspace #888888 #222222
-                urgent_workspace   #ffffff1 #900000
-            }
-    }
+		position top
+		output primary
+		tray_output primary
+		font pango:DejaVu Sans Mono 8
+		separator_symbol "⁞"
+		colors {
+		        background #000000
+		        statusline #FFFF00
+		        separator #ff329f
+		        focused_workspace  #f1f1f1 #285577
+		        active_workspace   #ffffff #333333
+		        inactive_workspace #888888 #222222
+		        urgent_workspace   #ffffff1 #900000
+		    }
+	}
 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
