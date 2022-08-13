@@ -48,9 +48,14 @@ alias ls='ls -hN --color=auto --group-directories-first'
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
+#echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 #Aliases
 alias up='sudo nala update && sudo nala upgrade -y'
 alias v='vim'
 alias nv='nvim'
 alias gc='git clone'
+export PATH=$PATH:/home/kimp/.spicetify
+source /home/kimp/.config/st/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+pfetch
