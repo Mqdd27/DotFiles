@@ -5,4 +5,4 @@
 - Panel: i3status
 - Terminal: St
 - Pdf Viewer: Zathura
-- Browser: Brave
+- Browser: Brave & Firefox
