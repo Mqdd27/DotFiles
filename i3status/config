@@ -6,17 +6,20 @@
 # ß
 # If the above line is not correctly displayed, fix your editor first!
 
-general {  
-    colors = true  
+general {
+    colors = true
     output_format = "i3bar"
+    #color_good =     '#ceceec'
+    color_degraded = '#DE0F17'
+    color_bad =      '#4c7899'
 }
 
 order += "wireless _first_"
 order += "battery all"
+order += "cpu_usage"
+order += "memory"
 order += "disk /"
 #order += "load"
-#order += "memory"
-#order += "cpu_usage"
 order += "volume master"
 order += "tztime local"
 #order += "read_file BRIGHTNESS"
@@ -39,17 +42,21 @@ disk "/" {
 #}
 
 memory {
-        format = "%used | %available"
+        format = "MEM:%used"
         threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
+        format_degraded = "MEMORY < %used"
 }
 
+#tztime local {
+#        format = "%Y-%m-%d %H:%M"
+#}
+
 tztime local {
-        format = "%Y-%m-%d %H:%M"
+    format = "%A, %d.%m.%Y %H:%M:%S"
 }
 
 cpu_usage {
-format = "CPU %usage {%cpu0 %cpu1}"
+format = "CPU %usage"
 max_threshold = 75
 }
 
@@ -63,4 +70,3 @@ format_muted = "♪: muted (%volume)"
 #path = "/home/mqdd/.config/brightness"
 #max_characters = 5
 #}
-
