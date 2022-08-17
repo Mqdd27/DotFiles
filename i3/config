@@ -167,27 +167,76 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3status to display a workspace bar (plus the system information i3status
-# finds out, if available)
+#######
+#THEME#
+#######
+
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+#i3status
+#bar {
+#		status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
+#		position top
+#		output primary
+#		tray_output primary
+#		font pango:DejaVu Sans Mono, FontAwesome 8
+#		separator_symbol "⁞"
+#		colors {
+#		        background #000000
+#		        statusline #FFFF00
+#		        separator #ff329f
+#		        focused_workspace  #f1f1f1 #285577
+#		        active_workspace   #ffffff #333333
+#		        inactive_workspace #888888 #222222
+#		        urgent_workspace   #ffffff1 #900000
+#		    }
+#	}
+
+#Bumblebee status
 bar {
-		#status_command i3status
-		status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
-        #status_command ~/git/i3spotifystatus/pystatus.py
-		position top
-		output primary
-		tray_output primary
-		font pango:DejaVu Sans Mono 8
-		separator_symbol "⁞"
-		colors {
-		        background #000000
-		        statusline #FFFF00
-		        separator #ff329f
-		        focused_workspace  #f1f1f1 #285577
-		        active_workspace   #ffffff #333333
-		        inactive_workspace #888888 #222222
-		        urgent_workspace   #ffffff1 #900000
-		    }
-	}
+	#font pango:DejaVu Sans Mono 8
+	font pango:Inconsolata, FontAwesome 8
+	position top
+	tray_output primary
+	status_command /home/kimp/git/bumblebee-status/bumblebee-status -m title spotify nic\
+        disk:root\
+		date time pasink battery\
+		-p spotify.layout="spotify.song" nic.format="{ssid}, {strength}" root.path=/ time.format="%H:%M" date.format="%a, %b %d %Y" \
+		-t gruvbox-powerline
+	colors {
+	        background $bg
+		statusline $yellow
+		focused_workspace    $aqua $aqua $darkgray
+	        inactive_workspace   $darkgray $darkgray $yellow
+        	active_workspace     $darkgray $darkgray $yellow
+	        urgent_workspace     $red $red $bg
+	    }
+}
+
+#Border
+
+# green gruvbox
+# class                 border|backgr|text|indicator|child_border
+#client.focused          $green $green $darkgray $purple $darkgray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red
+
+# blue gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $blue $blue $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -241,7 +290,7 @@ for_window [class="nm-connection-editor" instance="Nm-connection-editor"] floati
 for_window [class="blueman-manager"] floating enable
 for_window [window_role="About"] floating enable
 for_window [class="vlc"] floating enable
-for_window [title="mpv"] floating enabler; resize grow width 400px; resize grow height 800px;
+for_window [title="mpv"] floating enable; resize grow width 400px; resize grow height 800px;
 #for_window [class="video0"] floating enable
 for_window [title="video0"] floating enable; resize grow width 400px; resize grow height 800px;
 #for_window [title="video0"] resize grow height 800px; resize grow width 200px;
@@ -286,7 +335,7 @@ gaps outer 3
 hide_edge_borders smart_no_gaps
 
 # Only enable gaps on a workspace when there is at least one container
-smart_gaps on
+#smart_gaps on
 
 # Only enable outer gaps when there is exactly one container
 #smart_gaps inverse_outer
@@ -319,5 +368,5 @@ bindsym $mod+Shift+Return exec yakuake
 for_window [class="Spotify"] move container to workspace $ws10
 for_window [class="notion-app-enhanced"] move container to workspace $ws9
 
-#Fix error i3 status title bar
-exec --no-startup-id "sleep 0; i3-sensible-terminal -e i3-msg restart"
+#Fix i3 status error
+#exec --no-startup-id "sleep 0; uxterm -e i3-msg restart"
