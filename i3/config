@@ -233,7 +233,7 @@ bar {
 
 # blue gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $darkgray
+client.focused          $blue $blue $darkgray $purple $gray
 client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $white $red $red
@@ -357,7 +357,7 @@ exec --no-startup-id flameshot
 
 #Bind application
 #bindsym Print exec spectacle
-bindsym $mod+b exec firefox
+bindsym $mod+b exec brave-browser
 bindsym Print exec scrot $(date '%Y%m%d_%H%M%S.png') -e 'mv $f /home/kimp/Pictures/screenshots' && notify-send 'screnshot' 'taken. in ~/Pictures/screenshots'
 bindsym $mod+Shift+Print exec ~/record.sh
 #bindsym Alt+space exec krunner
@@ -368,5 +368,5 @@ bindsym $mod+Shift+Return exec yakuake
 for_window [class="Spotify"] move container to workspace $ws10
 for_window [class="notion-app-enhanced"] move container to workspace $ws9
 
-#Fix i3 status error
+#Fix i3 status title error
 #exec --no-startup-id "sleep 0; uxterm -e i3-msg restart"
