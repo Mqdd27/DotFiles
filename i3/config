@@ -3,7 +3,9 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+
+#font pango:monospace 8
+font pango: DejaVu Sans Mono 8
 
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #fontDejaVu pango:DejaVu Sans Mono 8
@@ -18,7 +20,7 @@ font pango:monospace 8
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
+exec --no-startup-id blueberry-tray
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -27,8 +29,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 #Control Brightness
-bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1 # decrease screen brightness
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -172,55 +174,55 @@ bindsym $mod+r mode "resize"
 #######
 
 # set primary gruvbox colorscheme colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
+#set $bg #282828
+#set $red #cc241d
+#set $green #98971a
+#set $yellow #d79921
+#set $blue #458588
+#set $purple #b16286
+#set $aqua #689d68
+#set $gray #a89984
+#set $darkgray #1d2021
 
 #i3status
-#bar {
-#		status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
-#		position top
-#		output primary
-#		tray_output primary
-#		font pango:DejaVu Sans Mono, FontAwesome 8
-#		separator_symbol "⁞"
-#		colors {
-#		        background #000000
-#		        statusline #FFFF00
-#		        separator #ff329f
-#		        focused_workspace  #f1f1f1 #285577
-#		        active_workspace   #ffffff #333333
-#		        inactive_workspace #888888 #222222
-#		        urgent_workspace   #ffffff1 #900000
-#		    }
-#	}
+bar {
+		status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
+		position top
+		output primary
+		tray_output primary
+		font pango:DejaVu Sans Mono, FontAwesome 8
+		separator_symbol "⁞"
+		colors {
+		        background #000000
+		        statusline #FFFF00
+		        separator #ff329f
+		        focused_workspace  #f1f1f1 #285577
+		        active_workspace   #ffffff #333333
+		        inactive_workspace #888888 #222222
+		        urgent_workspace   #ffffff1 #900000
+		    }
+	}
 
 #Bumblebee status
-bar {
+#bar {
 	#font pango:DejaVu Sans Mono 8
-	font pango:Inconsolata, FontAwesome 8
-	position top
-	tray_output primary
-	status_command /home/kimp/git/bumblebee-status/bumblebee-status -m title spotify nic\
-        disk:root\
-		date time pasink battery\
-		-p spotify.layout="spotify.song" nic.format="{ssid}, {strength}" root.path=/ time.format="%H:%M" date.format="%a, %b %d %Y" \
-		-t gruvbox-powerline
-	colors {
-	        background $bg
-		statusline $yellow
-		focused_workspace    $aqua $aqua $darkgray
-	        inactive_workspace   $darkgray $darkgray $yellow
-        	active_workspace     $darkgray $darkgray $yellow
-	        urgent_workspace     $red $red $bg
-	    }
-}
+#	font pango:Inconsolata, FontAwesome 8
+#	position top
+#	tray_output primary
+#	status_command /home/kimp/git/bumblebee-status/bumblebee-status -m title spotify nic\
+#        disk:root\
+#		date time pasink battery\
+#		-p spotify.layout="spotify.song" nic.format="{ssid}, {strength}" root.path=/ time.format="%H:%M" date.format="%a, %b %d %Y" \
+#		-t gruvbox-powerline
+#	colors {
+#	        background $bg
+#		statusline $yellow
+#		focused_workspace    $aqua $aqua $darkgray
+#	        inactive_workspace   $darkgray $darkgray $yellow
+#        	active_workspace     $darkgray $darkgray $yellow
+#	        urgent_workspace     $red $red $bg
+#	    }
+#}
 
 #Border
 
@@ -233,10 +235,10 @@ bar {
 
 # blue gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $gray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
+#client.focused          $blue $blue $darkgray $purple $gray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red
 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -262,7 +264,7 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 #Border
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 2
 
 # set floating (nontiling) for special apps
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
@@ -272,8 +274,9 @@ for_window [class="VirtualBox Manager" instance="VirtualBox Manager"] floating e
 #for_window [class="Thunar" instance="Thunar"] floating enable
 for_window [class="zoom" instance="zoom"] floating enable
 #for_window [class="steam" instance="steam"] floating enable
-for_window [class="xcalc" instance="XCalc"] floating enable
+for_window [class="xcalc" title="Calc"] floating enable
 for_window [class="Nitrogen"] floating enable
+for_window [class="blueberry.py" instance="Blueberry.py" title="Bluetooth"] floating enable
 for_window [title="Desktop — Plasma"] kill, floating enable, border none
 for_window [class="plasmashell"] floating enable
 for_window [class="Plasma"] floating enable, border none
@@ -287,7 +290,7 @@ for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
 no_focus [class="plasmashell" window_type="notification"]
 for_window [class="nm-connection-editor" instance="Nm-connection-editor"] floating enable
-for_window [class="blueman-manager"] floating enable
+#for_window [class="blueman-manager"] floating enable
 for_window [window_role="About"] floating enable
 for_window [class="vlc"] floating enable
 for_window [title="mpv"] floating enable; resize grow width 400px; resize grow height 800px;
@@ -295,7 +298,7 @@ for_window [title="mpv"] floating enable; resize grow width 400px; resize grow h
 for_window [title="video0"] floating enable; resize grow width 400px; resize grow height 800px;
 #for_window [title="video0"] resize grow height 800px; resize grow width 200px;
 for_window [title="ranger"] floating enable
-for_window [title="lf"] floating enable
+#for_window [title="lf"] floating enable
 for_window [class="yakuake"] floating enable
 for_window [title="gdebi-gtk"] floating enable
 for_window [class="TeamViewer"] floating enable
@@ -350,8 +353,9 @@ smart_borders no_gaps
 exec_always --no-startup-id dunst --restore
 exec_always --no-startup-id pactl set-default-sink 0
 #exec_always  $HOME/.config/polybar/launch.sh
-exec_always nitrogen --restore
-exec --no-startup-id picom -CGb --config ~/.config/picom.conf
+#exec_always nitrogen --restore
+#exec --no-startup-id picom -CGb --config ~/.config/picom.conf
+#exec --no-startup-id picom -b
 exec --no-startup-id flameshot
 #exec --no-startup-id spotify
 
@@ -369,4 +373,4 @@ for_window [class="Spotify"] move container to workspace $ws10
 for_window [class="notion-app-enhanced"] move container to workspace $ws9
 
 #Fix i3 status title error
-#exec --no-startup-id "sleep 0; uxterm -e i3-msg restart"
+exec --no-startup-id "sleep 0; uxterm -e i3-msg restart"
