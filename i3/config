@@ -28,10 +28,13 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-#Control Brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1 # decrease screen brightness
+#Control Brightness Using Light
+#bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1 # decrease screen brightness
 
+#Control Brightness Using Brightnessctl
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- # decrease screen brightness
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -186,7 +189,9 @@ bindsym $mod+r mode "resize"
 
 #i3status
 bar {
-		status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
+		##status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
+		status_command i3status | i3status-title-on-bar --color '#FFB6C1'
+		#status_command i3status
 		position top
 		output primary
 		tray_output primary
@@ -308,7 +313,8 @@ for_window [class="TeamViewer"] floating enable
 #floating_maximum_size 600 x 725
 
 #run File Manager
-bindsym $mod+e exec st -e "ranger"
+#bindsym $mod+e exec st -e "ranger"
+bindsym $mod+e exec thunar
 
 # move floating windows with keys
 bindsym $mod+m mode "move" focus floating
@@ -353,10 +359,11 @@ smart_borders no_gaps
 exec_always --no-startup-id dunst --restore
 exec_always --no-startup-id pactl set-default-sink 0
 #exec_always  $HOME/.config/polybar/launch.sh
-#exec_always nitrogen --restore
-#exec --no-startup-id picom -CGb --config ~/.config/picom.conf
+exec_always nitrogen --restore
+exec --no-startup-id picom -CGb --config ~/.config/picom.conf
 #exec --no-startup-id picom -b
 exec --no-startup-id flameshot
+#exec --no-startup-id feh --bg-scale ~/Pictures/ign_unpsplash24.png
 #exec --no-startup-id spotify
 
 #Bind application
@@ -373,4 +380,4 @@ for_window [class="Spotify"] move container to workspace $ws10
 for_window [class="notion-app-enhanced"] move container to workspace $ws9
 
 #Fix i3 status title error
-exec --no-startup-id "sleep 0; uxterm -e i3-msg restart"
+exec --no-startup-id "sleep 3; st -e i3-msg restart"
