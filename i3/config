@@ -175,17 +175,23 @@ bindsym $mod+r mode "resize"
 #######
 #THEME#
 #######
-
 # set primary gruvbox colorscheme colors
-#set $bg #282828
-#set $red #cc241d
-#set $green #98971a
-#set $yellow #d79921
-#set $blue #458588
-#set $purple #b16286
-#set $aqua #689d68
-#set $gray #a89984
-#set $darkgray #1d2021
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+# blue gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $blue $blue $darkgray $purple $red
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
 
 #i3status
 bar {
@@ -313,8 +319,8 @@ for_window [class="TeamViewer"] floating enable
 #floating_maximum_size 600 x 725
 
 #run File Manager
-#bindsym $mod+e exec st -e "ranger"
-bindsym $mod+e exec thunar
+bindsym $mod+e exec st -e "ranger"
+#bindsym $mod+e exec thunar
 
 # move floating windows with keys
 bindsym $mod+m mode "move" focus floating
