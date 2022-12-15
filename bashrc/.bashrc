@@ -1,7 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -115,13 +114,21 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-pfetch
+#pfetch
 
 ###Powerline Shell###
-function _update_ps1() {
-    PS1=$(powerline-shell $?)
-}
+#function _update_ps1() {
+#	PS1=$(powerline-shell $?) }
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+#if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+#    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+#fi
+#Aliases
+alias v='nvim'
+alias sv='sudo nvim'
+alias gc='git clone'
+alias r='ranger'
+alias sr='sudo ranger'
+alias up='sudo dnf update && sudo dnf upgrade -y'
+#vim keybinding
+set -o vi
