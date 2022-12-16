@@ -131,4 +131,5 @@ alias r='ranger'
 alias sr='sudo ranger'
 alias up='sudo dnf update && sudo dnf upgrade -y'
 #vim keybinding
-set -o vi
+#set -o vi
+fortune
