@@ -123,6 +123,7 @@ fi
 #if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
 #    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 #fi
+
 #Aliases
 alias v='nvim'
 alias sv='sudo nvim'
@@ -130,6 +131,9 @@ alias gc='git clone'
 alias r='ranger'
 alias sr='sudo ranger'
 alias up='sudo dnf update && sudo dnf upgrade -y'
+
 #vim keybinding
 #set -o vi
+
+#fortune greetings
 fortune
