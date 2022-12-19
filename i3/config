@@ -95,8 +95,7 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
+# focus the parent container bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -194,14 +193,34 @@ client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $white $red $red
 
 #i3status
-bar {
+#bar {
 		##status_command i3status | ~/git/i3spotifystatus/pystatus.py | i3status-title-on-bar --color '#FFB6C1'
-		status_command i3status | i3status-title-on-bar --color '#FFB6C1'
+		#status_command i3status | i3status-title-on-bar --color '#FFB6C1'
 		#status_command i3status
+		#position top
+		#output primary
+		#tray_output primary
+		#font pango:DejaVu Sans Mono, FontAwesome 8
+		#separator_symbol "⁞"
+		#colors {
+		        #background #000000
+		        #statusline #FFFF00
+		        #separator #ff329f
+		        #focused_workspace  #f1f1f1 #285577
+		        #active_workspace   #ffffff #333333
+		        #inactive_workspace #888888 #222222
+		        #urgent_workspace   #ffffff1 #900000
+		    #}
+	#}
+
+
+#i3blocks
+bar {
+		status_command i3blocks
 		position top
 		output primary
 		tray_output primary
-		font pango:DejaVu Sans Mono, FontAwesome 8
+		font pango:mono 9
 		separator_symbol "⁞"
 		colors {
 		        background #000000
