@@ -1,0 +1,16 @@
+# Guess the weather hourly
+[weather]
+command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+interval=3600
+color=#A4C2F4
+
+# Query my default IP address only on startup
+[battery]
+command= exec ~/.config/i3/scripts/battery1
+interval=30
+color=#91E78B
+
+# Update time every 5 seconds
+[time]
+command=date 
+interval=5
