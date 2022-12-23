@@ -131,6 +131,7 @@ alias gc='git clone'
 alias r='ranger'
 alias sr='sudo ranger'
 alias up='sudo dnf update && sudo dnf upgrade -y'
+alias fu='flatpak update'
 
 #vim keybinding
 #set -o vi
