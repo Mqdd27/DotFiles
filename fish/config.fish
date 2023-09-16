@@ -1,42 +1,62 @@
-#aliases
+if status is-interactive
+# Commands to run in interactive sessions can go here
+set fish_greeting
+fortune | cowsay 
+alias up='sudo apt update && sudo apt upgrade -y'
 alias v='vim'
-alias up='sudo nala update && sudo nala upgrade'
-alias gc='git clone'
-alias r='ranger'
-alias sr='sudo ranger'
 alias sv='sudo vim'
-alias ls='ls -hN --color=auto --group-directories-first'
+alias fu='flatpak update'
+alias za='zathura'
+alias web='cd /var/www'
+alias gc='git clone'
+alias ta='cd /home/kimp/Documents/TA'
+alias pkm='cd /home/kimp/Documents/PKM'
+alias web='cd /var/www/html/'
+alias nv='nvim'
+alias snv='sudo nvim'
 
-#vi mode
-#fish_vi_key_bindings
-function fish_user_key_bindings
- # Execute this once per mode that emacs bindings should be used in
-    fish_default_key_bindings -M insert
- # Without an argument, fish_vi_key_bindings will default to
- # resetting all bindings.
- # The argument specifies the initial mode (insert, "default" or visual).
-    fish_vi_key_bindings insert
-end
+# TokyoNight Color Palette
+set -l foreground c0caf5
+set -l selection 2e3c64
+set -l comment 565f89
+set -l red f7768e
+set -l orange ff9e64
+set -l yellow e0af68
+set -l green 9ece6a
+set -l purple 9d7cd8
+set -l cyan 7dcfff
+set -l pink bb9af7
 
-#fish cursor
-#fish_vi_cursor
-#set fish_cursor_default block
-#set fish_cursor_visual block
-#set -U fish_cursor_insert line
-#set -U fish_cursor_replace_one underscore
+# Syntax Highlighting Colors
+set -g fish_color_normal $foreground
+set -g fish_color_command $cyan
+set -g fish_color_keyword $pink
+set -g fish_color_quote $yellow
+set -g fish_color_redirection $foreground
+set -g fish_color_end $orange
+set -g fish_color_error $red
+set -g fish_color_param $purple
+set -g fish_color_comment $comment
+set -g fish_color_selection --background=$selection
+set -g fish_color_search_match --background=$selection
+set -g fish_color_operator $green
+set -g fish_color_escape $pink
+set -g fish_color_autosuggestion $comment
+
+# Completion Pager Colors
+set -g fish_pager_color_progress $comment
+set -g fish_pager_color_prefix $cyan
+set -g fish_pager_color_completion $foreground
+set -g fish_pager_color_description $comment
+set -g fish_pager_color_selected_background --background=$selection
+
+# Ganti Model Cursor
 set -U fish_custsor_default line
 
-#remove greeting message
-#set fish_greeting
-
-#greeting message
-function fish_greeting
-    fortune
 end
 
-#ascii
-export PF_ASCII="asjdhakjsd"
-
-#run pfetch
-pfetch
-
+# VIM Binding di terminal
+function fish_user_key_bindings
+    fish_default_key_bindings -M insert
+    fish_vi_key_bindings insert
+end
