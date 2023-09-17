@@ -9,11 +9,12 @@ alias fu='flatpak update'
 alias za='zathura'
 alias web='cd /var/www'
 alias gc='git clone'
-alias ta='cd /home/kimp/Documents/TA'
-alias pkm='cd /home/kimp/Documents/PKM'
+alias ta='cd ~/Documents/TA'
+alias pkm='cd ~/Documents/PKM'
 alias web='cd /var/www/html/'
 alias nv='nvim'
 alias snv='sudo nvim'
+alias wallpaper='cd ~/Pictures/Wallpaper'
 
 # TokyoNight Color Palette
 set -l foreground c0caf5
