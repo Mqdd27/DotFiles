@@ -1,7 +1,11 @@
+function fish_prompt
+    powerline-shell --shell bare $status
+end
+
 if status is-interactive
 # Commands to run in interactive sessions can go here
 set fish_greeting
-fortune | cowsay 
+# fortune | cowsay 
 alias up='sudo apt update && sudo apt upgrade -y'
 alias v='vim'
 alias sv='sudo vim'
@@ -14,7 +18,8 @@ alias pkm='cd ~/Documents/PKM'
 alias web='cd /var/www/html/'
 alias nv='nvim'
 alias snv='sudo nvim'
-alias wallpaper='cd ~/Pictures/Wallpaper'
+alias wall='cd ~/Pictures/Wallpaper'
+alias vid='cd ~/Videos/'
 
 # TokyoNight Color Palette
 set -l foreground c0caf5
