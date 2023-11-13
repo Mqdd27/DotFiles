@@ -125,16 +125,38 @@ fi
 #fi
 
 #Aliases
-alias v='nvim'
-alias sv='sudo nvim'
-alias gc='git clone'
-alias r='ranger'
-alias sr='sudo ranger'
-alias up='sudo dnf update && sudo dnf upgrade -y'
+alias up='sudo apt update && sudo apt upgrade -y'
+alias v='vim'
+alias sv='sudo vim'
 alias fu='flatpak update'
+alias za='zathura'
+alias web='cd /var/www'
+alias gc='git clone'
+alias ta='cd ~/Documents/TA'
+alias pkm='cd ~/Documents/PKM'
+alias web='cd /var/www/html/'
+alias nv='nvim'
+alias snv='sudo nvim'
+alias wall='cd ~/Pictures/Wallpaper'
+alias vid='cd ~/Videos/'
+alias jn='jupyter notebook'
+alias notebook='cd ~/Documents/Jupyter\ Notebook'
 
 #vim keybinding
 #set -o vi
 
 #fortune greetings
 fortune
+
+
+# Nala
+apt() {
+  command nala "$@"
+}
+sudo() {
+  if [ "$1" = "apt" ]; then
+    shift
+    command sudo nala "$@"
+  else
+    command sudo "$@"
+  fi
