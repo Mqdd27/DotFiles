@@ -51,11 +51,41 @@ alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax hi
 #echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 #Aliases
-alias up='sudo nala update && sudo nala upgrade -y'
+alias up='sudo apt update && sudo apt upgrade -y'
 alias v='vim'
-alias nv='nvim'
+alias sv='sudo vim'
+alias fu='flatpak update'
+alias za='zathura'
+alias web='cd /var/www'
 alias gc='git clone'
-#export PATH=$PATH:/home/kimp/.spicetify
-source /home/kimp/.config/st/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+alias ta='cd ~/Documents/TA'
+alias pkm='cd ~/Documents/PKM'
+alias web='cd /var/www/html/'
+alias nv='nvim'
+alias snv='sudo nvim'
+alias wall='cd ~/Pictures/Wallpaper'
+alias vid='cd ~/Videos/'
+alias jn='jupyter notebook'
+alias jl='jupyter lab'
+alias notebook='cd ~/Documents/Jupyter\ Notebook'
 
-pfetch
+#vim keybinding
+#set -o vi
+
+#fortune greetings
+#fortune
+
+apt() { 
+  command nala "$@"
+}
+sudo() {
+  if [ "$1" = "apt" ]; then
+    shift
+    command sudo nala "$@"
+  else
+    command sudo "$@"
+  fi
+}
+#export PATH=$PATH:/home/kimp/.spicetify
+source /home/kimp/git/zsh/zsh-syntax-highlighting.plugin.zsh
+. "$HOME/.cargo/env"
