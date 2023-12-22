@@ -140,17 +140,16 @@ alias snv='sudo nvim'
 alias wall='cd ~/Pictures/Wallpaper'
 alias vid='cd ~/Videos/'
 alias jn='jupyter notebook'
+alias jl='jupyter lab'
 alias notebook='cd ~/Documents/Jupyter\ Notebook'
 
 #vim keybinding
 #set -o vi
 
 #fortune greetings
-fortune
+#fortune
 
-
-# Nala
-apt() {
+apt() { 
   command nala "$@"
 }
 sudo() {
@@ -160,3 +159,6 @@ sudo() {
   else
     command sudo "$@"
   fi
+}
+
+. "$HOME/.cargo/env"
