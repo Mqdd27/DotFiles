@@ -47,8 +47,8 @@
 alias ls='ls -hN --color=auto --group-directories-first'
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
-#echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+neofetch
 
 #Aliases
 alias up='sudo apt update && sudo apt upgrade -y'
@@ -68,13 +68,20 @@ alias vid='cd ~/Videos/'
 alias jn='jupyter notebook'
 alias jl='jupyter lab'
 alias notebook='cd ~/Documents/Jupyter\ Notebook'
-
-#vim keybinding
-#set -o vi
-
-#fortune greetings
-#fortune
-
+alias spot='ncspot'
+alias news='newsboat'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias mkdir='mkdir -v'
+alias grep='grep -i'
+alias cp='cp -v'
+alias rm='rm -v'
+alias em='emacs -nw'
+alias emacs='emacs -nw'
+alias vps='ssh root@203.194.113.236'
+alias ipvps='echo "203.194.113.236"'
+alias transfervps='rsync * -urvP root@203.194.113.236:/home'
 apt() { 
   command nala "$@"
 }
