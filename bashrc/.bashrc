@@ -207,9 +207,9 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias em='emacs -nw'
 alias emacs='emacs -nw'
-alias vps='ssh root@203.194.113.236'
-alias ipvps='echo "203.194.113.236"'
-alias transfervps='rsync * -urvP root@203.194.113.236:/home'
+alias vps='ssh root@******'
+alias ipvps='echo "*******"'
+alias transfervps='rsync * -urvP root@******:/home'
 
 apt() { 
   command nala "$@"
