@@ -6,3 +6,4 @@
 - Terminal: St
 - Pdf Viewer: Zathura
 - Browser: Brave & Firefox
+- Shell: Zsh
