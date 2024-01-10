@@ -7,3 +7,6 @@
 - Pdf Viewer: Zathura
 - Browser: Brave & Firefox
 - Shell: Zsh
+
+Use Nala Instead of APT
+change in .zshrc
