@@ -3,7 +3,7 @@
 - WM: i3-gaps
 - Panel: i3status
 - Compositor: Picom
-- Terminal: St
+- Terminal: St / kitty
 - Pdf Viewer: Zathura
 - Browser: Brave & Firefox
 - Shell: Zsh
