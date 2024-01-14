@@ -163,11 +163,7 @@ sudo() {
     command sudo "$@"
   fi
 }
-#export PATH=$PATH:/home/kimp/.spicetify
-source /home/kimp/git/zsh/zsh-syntax-highlighting.plugin.zsh
-. "$HOME/.cargo/env"
-#vim keybinding
-#set -o vi
+
 
 #fortune greetings
 #fortune
