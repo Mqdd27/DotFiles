@@ -77,9 +77,9 @@ case "$extension" in
         try 7z -p l "$path" && { dump | trim; exit 0; } || exit 1;;
     # PDF documents:
     pdf)
-	try pdftoppm -jpeg -singlefile "$path" "${cached//.jpg}" && exit 6 || exit 1;;
-        #try pdftotext -l 10 -nopgbrk -q "$path" - && \
-            #{ dump | trim | fmt -s -w $width; exit 0; } || exit 1;;
+	#try pdftoppm -jpeg -singlefile "$path" "${cached//.jpg}" && exit 6 || exit 1;;
+    try pdftotext -l 10 -nopgbrk -q "$path" - && \
+       { dump | trim | fmt -s -w $width; exit 0; } || exit 1;;
     # BitTorrent Files
     torrent)
         try transmission-show "$path" && { dump | trim; exit 5; } || exit 1;;
@@ -108,10 +108,10 @@ case "$mimetype" in
         try safepipe pygmentize -f ${pygmentize_format} "$path" && { dump | trim; exit 5; }
         exit 2;;
     # Ascii-previews of images:
-    image/*)
-        img2txt --gamma=0.6 --width="$width" "$path" && exit 4 || exit 1;;
+    #image/*)
+        #img2txt --gamma=0.6 --width="$width" "$path" && exit 4 || exit 1;;
     # Display information about media files:
-    video/* | audio/*)
+    video/* | audio/* | image/*)
         exiftool "$path" && exit 5
         # Use sed to remove spaces so the output fits into the narrow window
         try mediainfo "$path" && { dump | trim | sed 's/  \+:/: /;';  exit 5; } || exit 1;;
